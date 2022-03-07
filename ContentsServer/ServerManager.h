@@ -11,7 +11,7 @@ public:
 	~ServerManager();
 	unordered_map<string, ClientInfo*> GetClientMap() const;
 	void ParsingClientInfo();
-
+	 
 private:
 	unordered_map<string, ClientInfo*> mClientMap;
 
