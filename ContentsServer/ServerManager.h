@@ -13,6 +13,6 @@ public:
 	void ParsingClientInfo();
 	 
 private:
-	unordered_map<string, ClientInfo*> mClientMap;
+	unordered_map<string, ClientInfo*> mClientMap;  
 
 };
