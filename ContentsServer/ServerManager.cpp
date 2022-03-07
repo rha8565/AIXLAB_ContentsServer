@@ -34,8 +34,12 @@ void ServerManager::ParsingClientInfo()
 	JsonFile.open("CDKeyInfo.json", std::ifstream::in);
 	System::Diagnostics::Debug::Assert(JsonFile.is_open(), " Assertion error! \n clientinfo json file is missing!");
 	System::Diagnostics::Debug::Assert(JsonReader.parse(JsonFile, JsonValue), " Assertion error! \n json file parsing failed !");
-
+	
+	for (auto elem : mClientMap) {
+		delete elem.second;
+	}
 	mClientMap.clear();
+	
 	for (Json::Value elem : JsonValue["ClientInfo"])
 	{
 		System::Diagnostics::Debug::WriteLine(elem["DueDate"].asUInt());

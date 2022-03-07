@@ -25,7 +25,7 @@ namespace ContentsServer
 		{
 			InitializeComponent();
 			mServerManager = new ServerManager();
-			RefreshDataGrid(*mServerManager);
+			RefreshDataGrid();
 			
 		}
 
@@ -58,6 +58,7 @@ namespace ContentsServer
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_DueDate;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_ConnectNum;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_MaxConnectNum;
+	private: System::Windows::Forms::Button^ New;
 	private: System::ComponentModel::Container^ components;
 
 
@@ -85,6 +86,7 @@ namespace ContentsServer
 			this->Column_DueDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column_ConnectNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column_MaxConnectNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->New = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ServerGridView))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -129,8 +131,8 @@ namespace ContentsServer
 			});
 			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
 			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
 			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::Color::White;
 			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::ControlText;
@@ -234,11 +236,23 @@ namespace ContentsServer
 			this->Column_MaxConnectNum->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->Column_MaxConnectNum->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			// 
+			// New
+			// 
+			this->New->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->New->Location = System::Drawing::Point(728, 459);
+			this->New->Name = L"New";
+			this->New->Size = System::Drawing::Size(90, 30);
+			this->New->TabIndex = 2;
+			this->New->Text = L"New";
+			this->New->UseVisualStyleBackColor = true;
+			this->New->Click += gcnew System::EventHandler(this, &ServerForm::New_Click);
+			// 
 			// ServerForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 14);
+			this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(944, 501);
+			this->Controls->Add(this->New);
 			this->Controls->Add(this->refresh);
 			this->Controls->Add(this->ServerGridView);
 			this->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -257,11 +271,11 @@ namespace ContentsServer
 		{
 			this->ServerGridView->Rows->Clear();
 			mServerManager->ParsingClientInfo();
-			RefreshDataGrid(*mServerManager);
+			RefreshDataGrid();
 		}
 			
-		System::Void RefreshDataGrid(const ServerManager& ServerManager) {
-			for (const auto& elem : ServerManager.GetClientMap())
+		System::Void RefreshDataGrid(){
+			for (const auto& elem : mServerManager->GetClientMap())
 			{
 				String^ rClient = gcnew System::String(elem.second->GetClientName().c_str());
 				String^ rCDKey = gcnew System::String(elem.first.c_str());
@@ -273,5 +287,8 @@ namespace ContentsServer
 			
 		}
 
-	};
+	private: System::Void New_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+};
 }
