@@ -1,0 +1,13 @@
+{
+	"ClientInfo":
+	[
+		{  "Client" : "client1",   "CDKey" : "test11",   "DueDate" : 20990101,   "MaxConnectNum" : 999},
+		{  "Client" : "client2",   "CDKey" : "CDKey2",   "DueDate" : 20990101,   "MaxConnectNum" : 999},
+		{  "Client" : "client3",   "CDKey" : "CDKey3",   "DueDate" : 20990101,   "MaxConnectNum" : 999},
+		{  "Client" : "client4",   "CDKey" : "CDKey4",   "DueDate" : 20990101,   "MaxConnectNum" : 999},
+		{  "Client" : "client5",   "CDKey" : "CDKey5",   "DueDate" : 20990101,   "MaxConnectNum" : 999},
+		{  "Client" : "client6",   "CDKey" : "CDKey6",   "DueDate" : 20990101,   "MaxConnectNum" : 999}
+	]
+}	
+
+
