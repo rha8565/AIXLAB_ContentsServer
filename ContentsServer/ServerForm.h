@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <fstream>
 #include "ServerManager.h"
+#include "CreateCDKeyForm.h"
 
 namespace ContentsServer 
 {
@@ -59,6 +60,7 @@ namespace ContentsServer
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_ConnectNum;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_MaxConnectNum;
 	private: System::Windows::Forms::Button^ New;
+
 	private: System::ComponentModel::Container^ components;
 
 
@@ -70,15 +72,15 @@ namespace ContentsServer
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle17 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle18 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle16 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->refresh = (gcnew System::Windows::Forms::Button());
 			this->ServerGridView = (gcnew System::Windows::Forms::DataGridView());
 			this->Column_Client = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -107,37 +109,37 @@ namespace ContentsServer
 			this->ServerGridView->AllowUserToDeleteRows = false;
 			this->ServerGridView->AllowUserToResizeColumns = false;
 			this->ServerGridView->AllowUserToResizeRows = false;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::White;
-			this->ServerGridView->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle10->BackColor = System::Drawing::Color::White;
+			this->ServerGridView->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
 			this->ServerGridView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->ServerGridView->BackgroundColor = System::Drawing::Color::White;
 			this->ServerGridView->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle11->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->ServerGridView->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle11->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->ServerGridView->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this->ServerGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->ServerGridView->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Column_Client,
 					this->Column_CD_Key, this->Column_DueDate, this->Column_ConnectNum, this->Column_MaxConnectNum
 			});
-			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle17->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle17->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle17->Font = (gcnew System::Drawing::Font(L"Constantia", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->ServerGridView->DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle17->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle17->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle17->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle17->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->ServerGridView->DefaultCellStyle = dataGridViewCellStyle17;
 			this->ServerGridView->GridColor = System::Drawing::Color::Black;
 			this->ServerGridView->Location = System::Drawing::Point(24, 8);
 			this->ServerGridView->Margin = System::Windows::Forms::Padding(0);
@@ -146,9 +148,9 @@ namespace ContentsServer
 			this->ServerGridView->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
 			this->ServerGridView->RowHeadersVisible = false;
 			this->ServerGridView->RowHeadersWidth = 62;
-			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->ServerGridView->RowsDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle18->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle18->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->ServerGridView->RowsDefaultCellStyle = dataGridViewCellStyle18;
 			this->ServerGridView->RowTemplate->Height = 30;
 			this->ServerGridView->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->ServerGridView->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::CellSelect;
@@ -158,12 +160,12 @@ namespace ContentsServer
 			// Column_Client
 			// 
 			this->Column_Client->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle12->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle12->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::Color::Black;
-			this->Column_Client->DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle12->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle12->SelectionForeColor = System::Drawing::Color::Black;
+			this->Column_Client->DefaultCellStyle = dataGridViewCellStyle12;
 			this->Column_Client->FillWeight = 3;
 			this->Column_Client->HeaderText = L"Client";
 			this->Column_Client->MaxInputLength = 100;
@@ -175,11 +177,11 @@ namespace ContentsServer
 			// Column_CD_Key
 			// 
 			this->Column_CD_Key->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::Color::Black;
-			this->Column_CD_Key->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle13->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
+			dataGridViewCellStyle13->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle13->SelectionForeColor = System::Drawing::Color::Black;
+			this->Column_CD_Key->DefaultCellStyle = dataGridViewCellStyle13;
 			this->Column_CD_Key->FillWeight = 3;
 			this->Column_CD_Key->HeaderText = L"CDkey";
 			this->Column_CD_Key->MaxInputLength = 100;
@@ -191,11 +193,11 @@ namespace ContentsServer
 			// Column_DueDate
 			// 
 			this->Column_DueDate->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::Color::Black;
-			this->Column_DueDate->DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
+			dataGridViewCellStyle14->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle14->SelectionForeColor = System::Drawing::Color::Black;
+			this->Column_DueDate->DefaultCellStyle = dataGridViewCellStyle14;
 			this->Column_DueDate->FillWeight = 3;
 			this->Column_DueDate->HeaderText = L"Due date";
 			this->Column_DueDate->MaxInputLength = 100;
@@ -207,11 +209,11 @@ namespace ContentsServer
 			// Column_ConnectNum
 			// 
 			this->Column_ConnectNum->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::Color::Black;
-			this->Column_ConnectNum->DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
+			dataGridViewCellStyle15->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle15->SelectionForeColor = System::Drawing::Color::Black;
+			this->Column_ConnectNum->DefaultCellStyle = dataGridViewCellStyle15;
 			this->Column_ConnectNum->FillWeight = 2;
 			this->Column_ConnectNum->HeaderText = L"Connect";
 			this->Column_ConnectNum->MaxInputLength = 100;
@@ -223,11 +225,11 @@ namespace ContentsServer
 			// Column_MaxConnectNum
 			// 
 			this->Column_MaxConnectNum->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
-			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::Color::White;
-			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::Color::Black;
-			this->Column_MaxConnectNum->DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle16->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle16->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold));
+			dataGridViewCellStyle16->SelectionBackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle16->SelectionForeColor = System::Drawing::Color::Black;
+			this->Column_MaxConnectNum->DefaultCellStyle = dataGridViewCellStyle16;
 			this->Column_MaxConnectNum->FillWeight = 2;
 			this->Column_MaxConnectNum->HeaderText = L"Max";
 			this->Column_MaxConnectNum->MaxInputLength = 100;
@@ -288,7 +290,8 @@ namespace ContentsServer
 		}
 
 	private: System::Void New_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		CreateCDKeyForm^ CreateCDKeyForm = gcnew ContentsServer::CreateCDKeyForm;
+		CreateCDKeyForm->ShowDialog();
 	}
 };
 }
