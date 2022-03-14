@@ -149,6 +149,9 @@
     <ClInclude Include="ServerManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreateCDKeyForm.resx">
+      <DependentUpon>CreateCDKeyForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServerForm.resx">
       <DependentUpon>ServerForm.h</DependentUpon>
     </EmbeddedResource>
