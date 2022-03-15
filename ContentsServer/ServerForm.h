@@ -23,9 +23,9 @@ namespace ContentsServer
 
 	public:
 		ServerForm(void)
+			:mServerManager(new ServerManager())
 		{
 			InitializeComponent();
-			mServerManager = new ServerManager();
 			RefreshDataGrid();
 			
 		}
@@ -276,7 +276,7 @@ namespace ContentsServer
 			RefreshDataGrid();
 		}
 			
-		System::Void RefreshDataGrid(){
+		System::Void RefreshDataGrid() {
 			for (const auto& elem : mServerManager->GetClientMap())
 			{
 				String^ rClient = gcnew System::String(elem.second->GetClientName().c_str());
@@ -286,12 +286,19 @@ namespace ContentsServer
 				String^ rMaxConnectNum = gcnew System::String(System::Convert::ToString(elem.second->GetmMaxConnectNum()));
 				this->ServerGridView->Rows->Add(rClient, rCDKey, rDueDate, rConnectNum, rMaxConnectNum);
 			}
-			
+
 		}
 
-	private: System::Void New_Click(System::Object^ sender, System::EventArgs^ e) {
-		CreateCDKeyForm^ CreateCDKeyForm = gcnew ContentsServer::CreateCDKeyForm;
-		CreateCDKeyForm->ShowDialog();
-	}
+		System::Void New_Click(System::Object^ sender, System::EventArgs^ e) {
+			CreateCDKey::CreateCDKeyForm^ CreateCDKeyFormInstance = gcnew CreateCDKey::CreateCDKeyForm(mServerManager);
+			CreateCDKeyFormInstance->Closed += gcnew System::EventHandler(this, &ServerForm::CreateCDKeyFormClosed);;
+			CreateCDKeyFormInstance->ShowDialog();
+		}
+
+		System::Void CreateCDKeyFormClosed(System::Object^ sender, System::EventArgs^ e) {
+			System::Diagnostics::Debug::WriteLine("CreateCDKeyForm is Closed...");
+		}
+
+
 };
 }
