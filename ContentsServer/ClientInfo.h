@@ -8,7 +8,7 @@ class ClientInfo final
 {
 public:
 	ClientInfo() = delete;
-	ClientInfo(string ClientName, uint32_t DueDate, uint32_t mMaxConnectNum)
+	ClientInfo(const string& ClientName, const uint32_t& DueDate, const uint32_t& mMaxConnectNum)
 		: mClientName(ClientName)
 		, mDueDate(DueDate)
 		, mMaxConnectNum(mMaxConnectNum)

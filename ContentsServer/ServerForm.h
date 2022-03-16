@@ -43,25 +43,26 @@ namespace ContentsServer
 			}
 		}
 
-	 
+	private:
+		//field
+		ServerManager* mServerManager;
+		CreateCDKey::CreateCDKeyForm^ mCreateCDKeyFormInstance;
 
 
 
 	private:
-		ServerManager* mServerManager;
 		/// <summary>
 		/// 필수 디자이너 변수입니다.
 		/// </summary>
-	private: System::Windows::Forms::Button^ refresh;
-	private: System::Windows::Forms::DataGridView^ ServerGridView;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_Client;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_CD_Key;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_DueDate;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_ConnectNum;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_MaxConnectNum;
-	private: System::Windows::Forms::Button^ New;
-
-	private: System::ComponentModel::Container^ components;
+		System::Windows::Forms::Button^ refresh;
+		System::Windows::Forms::DataGridView^ ServerGridView;
+		System::Windows::Forms::DataGridViewTextBoxColumn^ Column_Client;
+		System::Windows::Forms::DataGridViewTextBoxColumn^ Column_CD_Key;
+		System::Windows::Forms::DataGridViewTextBoxColumn^ Column_DueDate;
+		System::Windows::Forms::DataGridViewTextBoxColumn^ Column_ConnectNum;
+		System::Windows::Forms::DataGridViewTextBoxColumn^ Column_MaxConnectNum;
+		System::Windows::Forms::Button^ New;
+		System::ComponentModel::Container^ components;
 
 
 
@@ -290,13 +291,14 @@ namespace ContentsServer
 		}
 
 		System::Void New_Click(System::Object^ sender, System::EventArgs^ e) {
-			CreateCDKey::CreateCDKeyForm^ CreateCDKeyFormInstance = gcnew CreateCDKey::CreateCDKeyForm(mServerManager);
-			CreateCDKeyFormInstance->Closed += gcnew System::EventHandler(this, &ServerForm::CreateCDKeyFormClosed);;
-			CreateCDKeyFormInstance->ShowDialog();
+			mCreateCDKeyFormInstance = gcnew CreateCDKey::CreateCDKeyForm;
+			mCreateCDKeyFormInstance->GetOKButton()->Click += gcnew System::EventHandler(this, &ServerForm::CreateCDKeyFormClosed);
+			mCreateCDKeyFormInstance->ShowDialog();
 		}
 
 		System::Void CreateCDKeyFormClosed(System::Object^ sender, System::EventArgs^ e) {
 			System::Diagnostics::Debug::WriteLine("CreateCDKeyForm is Closed...");
+
 		}
 
 

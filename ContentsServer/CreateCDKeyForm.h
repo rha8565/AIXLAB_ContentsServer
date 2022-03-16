@@ -17,8 +17,7 @@ namespace CreateCDKey {
 	{
 	public:
 
-		CreateCDKeyForm(const ServerManager* mServerManager)
-			:mServerManager(mServerManager)
+		CreateCDKeyForm(void)
 		{
 			InitializeComponent();
 			//
@@ -26,10 +25,21 @@ namespace CreateCDKey {
 			//
 		}
 
+		System::Windows::Forms::Button^ GetOKButton() {
+			return Btn_OK;
+		}
+
+		void CreateCDKey(ServerManager* ) {
+
+
+			TextBox_Client->Text;
+			textBox_CDKey->Text;
+			DueDateTimePicker->Value.ToString();
+			NumericUpDown->Value.ToInt32;
+		}
 
 
 		
-
 	protected:
 		/// <summary>
 		/// 사용 중인 모든 리소스를 정리합니다.
@@ -43,18 +53,14 @@ namespace CreateCDKey {
 		}
 
 	private:
-		const ServerManager* mServerManager;
-		//feild
-
-	private:
 		//container
 		System::Windows::Forms::GroupBox^ groupBox_Client;
 		System::Windows::Forms::TextBox^ TextBox_Client;
 		System::Windows::Forms::GroupBox^ groupBox_CDKey;
 		System::Windows::Forms::TextBox^ textBox_CDKey;
+		System::Windows::Forms::Button^ Btn_OK;
 		System::Windows::Forms::GroupBox^ groupBox_DueDate;
 		System::Windows::Forms::GroupBox^ groupBox_MaxConnect;
-		System::Windows::Forms::Button^ Btn_OK;
 		System::Windows::Forms::Button^ Btn_Close;
 		System::Windows::Forms::Button^ Btn_Apply;
 		System::Windows::Forms::DateTimePicker^ DueDateTimePicker;
@@ -217,7 +223,6 @@ namespace CreateCDKey {
 			this->Btn_OK->TabIndex = 5;
 			this->Btn_OK->Text = L"OK";
 			this->Btn_OK->UseVisualStyleBackColor = true;
-			this->Btn_OK->Click += gcnew System::EventHandler(this, &CreateCDKeyForm::Btn_OK_Click);
 			// 
 			// Btn_Close
 			// 
@@ -300,10 +305,6 @@ namespace CreateCDKey {
 
 		System::Void DueDateTimePicker_Enter(System::Object^ sender, System::EventArgs^ e) {
 			DueDateTimePicker->MinDate = System::DateTime::Today;
-		}
-
-		System::Void Btn_OK_Click(System::Object^ sender, System::EventArgs^ e) {
-			
 		}
 };
 }
